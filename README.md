@@ -67,7 +67,14 @@ In **PowerShell** or in a **Command Prompt** window:
     brew install zlib openssl readline
     CFLAGS="-I$(brew --prefix openssl)/include -I$(brew --prefix readline)/include -I$(xcrun --show-sdk-path)/usr/include" LDFLAGS="-L$(brew --prefix openssl)/lib -L$(brew --prefix readline)/lib -L$(brew --prefix zlib)/lib"
     ```
-
+ 
+  If Python installer fails due to 'zlib not found' error even if zlib is installed via brew;
+  
+   ```
+   xcode-select --install
+   sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
+   ```
+   
 - **Windows**
 
     - In PowerShell, upon executing `bundled_installer`, if you see an error with the message "execution of scripts is disabled on this system", set the [execution policy](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6) to "RemoteSigned" and then rerun `bundled_installer`.
